@@ -1,0 +1,113 @@
+body {
+    padding-top: 90px;
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.card_img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+.like_form, .release_form {
+    position: absolute;
+    right: 2vw;
+    bottom: 1vh;
+}
+.like_btn {
+    color: red;
+    text-shadow: 0 0 1px #000;
+}
+.not_like_btn {
+    color: gray;
+    text-shadow: 0 0 1px #000;
+}
+
+.release_btn {
+    color: gray;
+    text-shadow: 0 0 1px #000;
+}
+
+.nav_user_name {
+    width: 90px;
+    margin-left: auto;
+    margin-right:0;
+}
+
+.image_preview {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 3px solid #999;
+    padding: 3px;
+}
+
+.user_name{
+    margin: 0 auto;
+    width: 150px;
+}
+
+.album {
+    padding-top: 15px;
+    padding-left: 15px;
+}
+.noting_comment {
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+.photo_preview_window {
+    border-radius: 1%;
+    width: 100%;
+    height: 250px;
+    border: 3px solid #999;
+    padding: 5px;
+    margin: 0 auto 20px auto;
+    overflow-y: auto;
+}
+.photo_preview_flame {
+    padding: 2.5px 2.5px;
+}
+.photo_preview {
+    width: 100%;
+    height: 70px;
+    border: solid 1px gray;
+    object-fit: cover;
+}
+
+.image_preview_min {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border: 1px solid #999;
+    padding: 1px;
+}
+.user_name_min {
+    margin-left: 20px;
+    width: 100px;
+}
+.album_comment {
+    border-top: 2px solid gray;
+    border-bottom: 2px solid gray;
+    height: 100px;
+    padding: 5px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+.album_photo {
+    width: 100%;
+    height: 100px;
+    border: solid 1px gray;
+    object-fit: cover;
+}
+.default_icon::after {
+    display: none; 
+}
+
+.select {
+    border: solid 3px blue;
+}
