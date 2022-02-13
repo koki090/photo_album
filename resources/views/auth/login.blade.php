@@ -1,7 +1,5 @@
 @extends('layouts.not_logged_in')
 
-@section('title', $title)
-
 @section('content')
 
 <div class="row justify-content-center">
