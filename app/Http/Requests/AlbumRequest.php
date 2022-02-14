@@ -24,14 +24,14 @@ class AlbumRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'max:100'],
+            'title' => ['required', 'max:255'],
             'comment' => ['required', 'max:2000'],
             'files.*' => [
                 'required',
                 'file',
                 'image',
                 'mimes:jpeg,jpg,png',
-                'dimensions:max_width=1000,max_height=1000']
+                'max:1024']
         ];
     }
 }

@@ -53,8 +53,22 @@
 
 <div class="row">
     @foreach($album->photos as $photo)
-    <div class="col-3 col-sm-3 col-md-2 col-lg-2">
-        <img src="{{ asset('storage/' . $photo->path) }}" class="album_photo">
+    <div class="col-3 col-sm-3 col-md-2 col-lg-2" style="padding: 5px">
+        <a data-toggle="modal" data-target="#modal{{ $photo->id }}">
+            <div style="width: 100%; padding-top: 100%; position: relative;">
+                <img src="{{ asset('storage/' . $photo->path) }}" class="album_photo" style="top: 0; right: 0; bottom: 0; left: 0; position: absolute;">
+            </div>
+        </a>
+        <div class="modal fade" id="modal{{ $photo->id }}">
+            <div class="modal-dialog">
+                <div class="modal-body">
+                    <img src="{{ asset('storage/' . $photo->path) }}" class="img-fluid">
+                </div>
+                <div class="modal-footer" style="border: none; padding-top: 0;">
+                    <button class="btn btn-primary" data-dismiss="modal">戻る</button>
+                </div>
+            </div>
+        </div>
     </div>
     @endforeach
 </div>

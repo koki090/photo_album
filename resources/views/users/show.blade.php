@@ -3,14 +3,16 @@
 @section('title', $title)
 
 @section('content')
-<div class="row justify-coneten-center col-12" style="margin: 0 auto;">
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center">
+<div class="row justify-coneten-center col-11" style="margin: 0 auto;">
+    <div class="col-8 col-sm-8 col-md-5 col-lg-5 text-center" style="margin: 0 auto;">
         <div>
-            @if($user->image !== '')
-            <img src="{{ asset('storage/' . $user->image) }}" class="image_preview">
-            @else
-            <img src="{{ asset('images/no_image.png') }}" class="image_preview">
-            @endif
+            <div style="width: 100%; padding-top: 100%; position: relative;">
+                @if($user->image !== '')
+                <img src="{{ asset('storage/' . $user->image) }}" class="image_preview" style="top: 0; right: 0; bottom: 0; left: 0; position: absolute;">
+                @else
+                <img src="{{ asset('images/no_image.png') }}" class="image_preview" style="top: 0; right: 0; bottom: 0; left: 0; position: absolute;">
+                @endif
+            </div>
             <p class="text-truncate user_name">{{ $user->name }}</p>
         </div>
         <div class="user_menu">
@@ -29,7 +31,7 @@
             @endif
         </div>
     </div>
-    <div class="col-12 col-sm-12 col-md-6 col-lg-6 text-center row d-flex align-items-center" style="margin: 0 auto;">
+    <div class="col-12 col-sm-12 col-md-5 col-lg-5 text-center row d-flex align-items-center" style="margin: 0 auto;">
         <div class="col-12">
             <ul class="list-group list-group-flush list-group-horizontal-md">
                 <li class="list-group-item">
@@ -85,9 +87,11 @@
                             <p class="text-dark text-truncate" style="margin: 0 3vh auto 3vh;">{{ $album->title }}</p>
                         </div>
                         <div class="card-body" style="padding: 1vh; position: relative;">
-                            <div class="slick_photos">
+                            <div style="width: 100%; padding-top: 100%; position: relative;">
                                 @foreach($album->photos as $photo)
-                                <img src="{{ asset('storage/' . $photo->path) }}" class="card-img-bottom card_img">
+                                @if($loop->first)
+                                <img src="{{ asset('storage/' . $photo->path) }}" class="card-img-bottom card_img" style="top: 0; right: 0; bottom: 0; left: 0; position: absolute;">
+                                @endif
                                 @endforeach
                             </div>
                             <div class="release_form">
@@ -124,9 +128,11 @@
                             <p class="text-dark text-truncate" style="margin: 0 3vh auto 3vh;">{{ $album->title }}</p>
                         </div>
                         <div class="card-body" style="padding: 1vh; position: relative;">
-                            <div class="slick_photos">
+                            <div style="width: 100%; padding-top: 100%; position: relative;">
                                 @foreach($album->photos as $photo)
-                                <img src="{{ asset('storage/' . $photo->path) }}" class="card-img-bottom card_img">
+                                @if($loop->first)
+                                <img src="{{ asset('storage/' . $photo->path) }}" class="card-img-bottom card_img" style="top: 0; right: 0; bottom: 0; left: 0; position: absolute;">
+                                @endif
                                 @endforeach
                             </div>
                             @if($user->id === Auth::id())
@@ -169,9 +175,11 @@
                             <p class="text-dark text-truncate" style="margin: 0 3vh auto 3vh;">{{ $album->title }}</p>
                         </div>
                         <div class="card-body" style="padding: 1vh; position: relative;">
-                            <div class="slick_photos">
+                            <div style="width: 100%; padding-top: 100%; position: relative;">
                                 @foreach($album->photos as $photo)
-                                <img src="{{ asset('storage/' . $photo->path) }}" class="card-img-bottom card_img">
+                                @if($loop->first)
+                                <img src="{{ asset('storage/' . $photo->path) }}" class="card-img-bottom card_img" style="top: 0; right: 0; bottom: 0; left: 0; position: absolute;">
+                                @endif
                                 @endforeach
                             </div>
                             <div class="release_form">

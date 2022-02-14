@@ -1,3 +1,7 @@
+<?php
+$title = '会員登録';
+?>
+
 @extends('layouts.not_logged_in')
 
 @section('content')
@@ -5,9 +9,9 @@
 <div class="row justify-content-center">
     <form method="post" action="{{ route('register') }}" enctype="multipart/form-data" class="col-12 col-md-8 col-lg-6">
         @csrf
-        <output id="result" class="row justify-content-center">
-            <div>
-                <img src="{{ asset('images/no_image.png') }}" class="image_preview">
+        <output id="result" class="row justify-content-center" style="width: 60%; margin: 0 auto;">
+            <div class="user_image_position">
+                <img src="{{ asset('images/no_image.png') }}" class="image_preview" style="top: 0; right: 0; bottom: 0; left: 0; position: absolute;">
             </div>
         </output>
         <div class="form-group">
@@ -48,7 +52,8 @@
             fileReader.addEventListener("load", (event) => {
                 let imageFile = event.target;
                 let div = document.createElement("div");
-                div.innerHTML = "<img src='" + imageFile.result + "' class='image_preview'>";
+                div.classList.add('user_image_position');
+                div.innerHTML = "<img src='" + imageFile.result + "' class='image_preview' style='top: 0; right: 0; bottom: 0; left: 0; position: absolute;'>";
                 output.innerHTML = "";
                 output.insertBefore(div, null);
             });

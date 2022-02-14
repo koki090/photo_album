@@ -21,7 +21,7 @@ class AlbumController extends Controller
     public function home(){
         $albums = Album::where('release', 1)->get();
         return view('albums.home', [
-            'title' => 'Phot_album',
+            'title' => 'Photo_album',
             'albums' => $albums]);
     }
     
@@ -53,7 +53,7 @@ class AlbumController extends Controller
         $albums = $search_albums->get();
         
         return view('albums.index', [
-            'title' => 'アルバム',
+            'title' => 'Photo_album',
             'albums' => $albums]);
     }
 
