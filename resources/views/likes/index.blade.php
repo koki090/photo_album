@@ -13,9 +13,11 @@
                     <p class="text-dark text-truncate" style="margin: 0 3vh auto 3vh;">{{ $album->title }}</p>
                 </div>
                 <div class="card-body" style="padding: 1vh; position: relative;">
-                    <div class="slick_photos">
+                    <div style="width: 100%; padding-top: 100%; position: relative;">
                         @foreach($album->photos as $photo)
-                        <img src="{{ asset('storage/' . $photo->path) }}" class="card-img-bottom card_img">
+                        @if($loop->first)
+                        <img src="{{ asset('storage/' . $photo->path) }}" class="card-img-bottom card_img" style="top: 0; right: 0; bottom: 0; left: 0; position: absolute;">
+                        @endif
                         @endforeach
                     </div>
                     <div class="like_form">

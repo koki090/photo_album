@@ -1,14 +1,10 @@
 body {
     padding-top: 90px;
 }
-.img-fluid {
-    max-width: 100%;
-    height: auto;
-}
 
 .card_img {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 .like_form, .release_form {
@@ -38,8 +34,8 @@ body {
 
 .image_preview {
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border: 3px solid #999;
     padding: 3px;
@@ -49,7 +45,10 @@ body {
     margin: 0 auto;
     width: 150px;
 }
-
+.follows_title {
+    display: inline-block;
+    width: 50%; 
+}
 .album {
     padding-top: 15px;
     padding-left: 15px;
@@ -100,7 +99,7 @@ body {
 }
 .album_photo {
     width: 100%;
-    height: 100px;
+    height: 100%;
     border: solid 1px gray;
     object-fit: cover;
 }
@@ -110,4 +109,8 @@ body {
 
 .select {
     border: solid 3px blue;
+}
+
+.user_image_position {
+    width: 100%; padding-top: 100%; position: relative;
 }
