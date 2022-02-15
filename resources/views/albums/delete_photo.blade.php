@@ -5,13 +5,19 @@
 @section('content')
 
 <div class="row justify-content-center">
-    <div class="col-12 col-md-8 col-lg-6">
-        <div id="photos" class="photo_preview_window row">
-            @foreach($album_photos as $photo)
-            <div class="col-lg-2 col-md-2 col-sm-3 col-3 photo_preview_flame align-items-center">
-                <a onclick="selectPhoto({{ $photo->id }});"><img src="{{ asset('storage/' . $photo->path) }}" class="photo_preview"></a>
+    <div class="col-12">
+        <div class="photo_preview_window">
+            <div id="photos" class="row">
+                @foreach($album_photos as $photo)
+                <div class="col-3 col-sm-3 col-md-2 col-lg-2 photo_flame">
+                    <a onclick="selectPhoto({{ $photo->id }});">
+                        <div class="img_position">
+                            <img src="{{ asset('storage/' . $photo->path) }}" class="album_photo">
+                        </div>
+                    </a>
+                </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
         <form method="post" action="{{ route('albums.select_delete_photo', $album_id) }}" name="select_delete_photos">
             @csrf

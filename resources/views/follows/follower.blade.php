@@ -6,19 +6,19 @@
 
 <div class="row">
     <div class="col-12">
-        <h1><span class="text-truncate text-right follows_title" style="vertical-align: top;">{{ $user->name }}</span><span class="follows_title" style="overflow: hidden;">さんのフォロワー</span></h1>
+        <h1><span class="text-truncate text-right follows_title_target_name">{{ $user->name }}</span><span class="follows_title">さんのフォロワー</span></h1>
     </div>
     @forelse($followers as $follower)
     <div class="col-6 col-sm-6 col-md-4 col-lg-3 text-center">
-        <a href="{{ route('users.show', $follower->id) }}">
-            <div style="width: 100%; padding-top: 100%; position: relative;">
+        <a href="{{ route('users.show', $follower->id) }}" class="text-decoration-none">
+            <div class="img_position">
                 @if($follower->image !== '')
-                <img src="{{ asset('storage/' . $follower->image) }}" class="image_preview" style="top: 0; right: 0; bottom: 0; left: 0; position: absolute;">
+                <img src="{{ asset('storage/' . $follower->image) }}" class="user_image">
                 @else
-                <img src="{{ asset('images/no_image.png') }}" class="image_preview" style="top: 0; right: 0; bottom: 0; left: 0; position: absolute;">
+                <img src="{{ asset('images/no_image.png') }}" class="user_image">
                 @endif
             </div>
-            <p class="text-truncate user_name">{{ $follower->name }}</p>
+            <p class="text-truncate w-75 mx-auto">{{ $follower->name }}</p>
         </a>
     </div>
     @empty

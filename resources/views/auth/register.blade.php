@@ -9,9 +9,9 @@ $title = '会員登録';
 <div class="row justify-content-center">
     <form method="post" action="{{ route('register') }}" enctype="multipart/form-data" class="col-12 col-md-8 col-lg-6">
         @csrf
-        <output id="result" class="row justify-content-center" style="width: 60%; margin: 0 auto;">
-            <div class="user_image_position">
-                <img src="{{ asset('images/no_image.png') }}" class="image_preview" style="top: 0; right: 0; bottom: 0; left: 0; position: absolute;">
+        <output id="result" class="row justify-content-center w-50 mx-auto">
+            <div class="img_position">
+                <img src="{{ asset('images/no_image.png') }}" class="user_image">
             </div>
         </output>
         <div class="form-group">
@@ -46,14 +46,14 @@ $title = '会員登録';
     inputFile.addEventListener("change", (event) => {
         let file = event.target.files[0];
         let output = document.getElementById("result");
-        output.innerHTML = "<div><img src='{{ asset('images/no_image.png') }}' class='image_preview'></div>";
+        output.innerHTML = "<div class='img_position'><img src='{{ asset('images/no_image.png') }}' class='user_image'></div>";
         if(file.type.match('image')){
             let fileReader = new FileReader;
             fileReader.addEventListener("load", (event) => {
                 let imageFile = event.target;
                 let div = document.createElement("div");
-                div.classList.add('user_image_position');
-                div.innerHTML = "<img src='" + imageFile.result + "' class='image_preview' style='top: 0; right: 0; bottom: 0; left: 0; position: absolute;'>";
+                div.classList.add('img_position');
+                div.innerHTML = "<img src='" + imageFile.result + "' class='user_image'>";
                 output.innerHTML = "";
                 output.insertBefore(div, null);
             });

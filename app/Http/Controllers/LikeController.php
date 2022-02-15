@@ -29,6 +29,6 @@ class LikeController extends Controller
                 'user_id' => $user_id,
                 'album_id' => $target_album->id]);
         }
-        return redirect()->route('albums.index');
+        return back();
     }
 }
