@@ -5,23 +5,8 @@
 @section('content')
 
 <div class="row align-items-center">
-    <div class="col-6 d-flex">
-        <div>
-            <h1 class="text-truncate">{{ $album->title }}</h1>
-        </div>
-        <div class="mt-2 ml-3">
-            @if($album->user_id !== Auth::id())
-            @if($album->isLikedBy(Auth::id()))
-            <a class="click_action"><i class="fas fa-heart fa-2x like_btn"></i></a>
-            @else
-            <a class="click_action"><i class="fas fa-heart fa-2x not_like_btn"></i></a>
-            @endif
-            <form method="post" action="{{ route('likes.toggle_like', $album->id) }}">
-                @csrf
-                @method('patch')
-            </form>
-            @endif
-        </div>
+    <div class="col-6">
+        <h1 class="text-truncate">{{ $album->title }}</h1>
     </div>
     <div class="col-6">
         <div class="d-flex justify-content-end align-items-center">
@@ -67,6 +52,19 @@
     </div>
     <div class="col-12 album_comment">
         {{ $album->comment }}
+        <div class="album_show_like_form">
+            @if($album->user_id !== Auth::id())
+            @if($album->isLikedBy(Auth::id()))
+            <a class="click_action"><i class="fas fa-heart fa-2x like_btn"></i></a>
+            @else
+            <a class="click_action"><i class="fas fa-heart fa-2x not_like_btn"></i></a>
+            @endif
+            <form method="post" action="{{ route('likes.toggle_like', $album->id) }}">
+                @csrf
+                @method('patch')
+            </form>
+            @endif
+        </div>
     </div>
 </div>
 
