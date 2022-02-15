@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\AlbumRequest;
 use App\Http\Requests\PushPhotoRequest;
 use App\User;
@@ -37,15 +38,16 @@ class AlbumController extends Controller
             if($range === 'comment'){
                 foreach($search_words as $word){
                     $h_search_word = '%' . addcslashes($word, '%_\\') . '%';
-                    $search_albums = Album::where('comment', 'like', $h_search_word);
+                    $search_albums = $search_albums->where(DB::raw("CONCAT(title, ' ', comment)"), 'like', $h_search_word);
                 };
             }else{
+                $search_user_id = User::where('id', '!=', \Auth::id());
                 foreach($search_words as $word){
                     $h_search_word = '%' . addcslashes($word, '%_\\') . '%';
-                    $search_user_id = User::where('name', 'like', $h_search_word)->pluck('id');
+                    $search_user_id = $search_user_id->where('name', 'like', $h_search_word)->pluck('id');
                 };
                 if(empty($search_user_id) !== true){
-                    $search_albums = Album::where('user_id', $search_user_id);
+                    $search_albums = $search_albums->where('user_id', $search_user_id);
                 };
             }
         }
