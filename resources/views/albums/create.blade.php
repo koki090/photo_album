@@ -9,22 +9,22 @@
         @csrf
         <input type="hidden" name="user_id" value="{{ Auth::id() }}">
         <div class="form-group">
-            <label for="input_title">タイトル</label>
-            <input id="input_title" type="text" name="title" class="form-control">
+            <label for="inputTitle">タイトル</label>
+            <input id="inputTitle" type="text" name="title" class="form-control">
         </div>
         <div class="form-group">
-            <label for="input_comment">コメント</label>
-            <textarea id="input_comment" name="comment" class="form-control"></textarea>
+            <label for="inputComment">コメント</label>
+            <textarea id="inputComment" name="comment" class="form-control"></textarea>
         </div>
         <div class="form-group">
-            <label for="input_photo">写真を選択</label>
-            <input id="input_photo" type="file" name="photos[]" class="form-control-file" multiple>
+            <label for="inputPhoto">写真を選択</label>
+            <input id="inputPhoto" type="file" name="photos[]" class="form-control-file" multiple>
         </div>
         <output id="result" class="photo_preview_window row"></output>
         <div class="form-group form-check">
             <input type="hidden" name="release" value="0">
-            <input id="input_release" type="checkbox" name="release" value="1" class="form-check-input">
-            <label for="input_release" class="form-check-label">公開する</label>
+            <input id="inputRelease" type="checkbox" name="release" value="1" class="form-check-input">
+            <label for="inputRelease" class="form-check-label">公開する</label>
         </div>
         <div class="text-right">
             <input type="submit" value="アルバム作成" class="btn btn-primary">
@@ -33,7 +33,7 @@
 </div>
 
 <script>
-    let inputFiles = document.getElementById("input_photo");
+    let inputFiles = document.getElementById("inputPhoto");
     inputFiles.addEventListener("change", (event) => {
         let files = event.target.files;
         let output = document.getElementById("result");
@@ -57,4 +57,3 @@
 </script>
 
 @endsection
-

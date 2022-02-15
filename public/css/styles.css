@@ -1,113 +1,137 @@
+/*共通パーツ*/
 body {
-    padding-top: 90px;
+    padding-top: 105px;
+    margin-bottom: 105px;
 }
-.img-fluid {
-    max-width: 100%;
-    height: auto;
+html {
+    scroll-behavior: smooth;
 }
-
-.card_img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
+.back_to_top {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    z-index: 10000;
+    padding: 10px;
+    border-radius: 10%;
+    text-align: center;
+    background: #ffffff;
+    opacity: 0.5;
+    border: 1px solid #999999;
 }
-.like_form, .release_form {
-    position: absolute;
-    right: 2vw;
-    bottom: 1vh;
+.back_to_top a {
+    text-decoration: none;
+    color: #333;
 }
-.like_btn {
-    color: red;
-    text-shadow: 0 0 1px #000;
-}
-.not_like_btn {
-    color: gray;
-    text-shadow: 0 0 1px #000;
-}
-
-.release_btn {
-    color: gray;
-    text-shadow: 0 0 1px #000;
-}
-
-.nav_user_name {
-    width: 90px;
-    margin-left: auto;
-    margin-right:0;
-}
-
-.image_preview {
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border: 3px solid #999;
-    padding: 3px;
-}
-
-.user_name{
-    margin: 0 auto;
-    width: 150px;
-}
-
-.album {
-    padding-top: 15px;
-    padding-left: 15px;
+.back_to_top:hover {
+    opacity: 1;
 }
 .noting_comment {
     margin-top: 120px;
     margin-bottom: 120px;
 }
-
-.photo_preview_window {
-    border-radius: 1%;
+.img_position {
     width: 100%;
-    height: 250px;
-    border: 3px solid #999;
-    padding: 5px;
-    margin: 0 auto 20px auto;
-    overflow-y: auto;
+    padding-top: 100%;
+    position: relative;
 }
-.photo_preview_flame {
-    padding: 2.5px 2.5px;
+.img_position img {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
 }
-.photo_preview {
+/*albumカード*/
+.album_photo {
     width: 100%;
-    height: 70px;
-    border: solid 1px gray;
+    height: 100%;
     object-fit: cover;
 }
-
-.image_preview_min {
+.album_body {
+    padding: 10px;
+    position: relative;
+}
+.like_form, .release_form {
+    position: absolute;
+    right: 7%;
+    bottom: 5%;
+    cursor: pointer;
+}
+.like_btn {
+    color: red;
+    text-shadow: 0 0 3px #000000;
+}
+.not_like_btn {
+    color: #ffffff;
+    text-shadow: 0 0 3px #000000;
+}
+.release_btn {
+    color: #ffffff;
+    text-shadow: 0 0 3px #000000;
+}
+/*ナビゲーションバー*/
+.nav_user_name {
+    width: 90px;
+    margin-left: auto;
+    margin-right:0;
+}
+/*followsパーツ*/
+.follows_title_target_name {
+    display: inline-block;
+    width: 50%; 
+    vertical-align: top;
+}
+.follows_title {
+    display: inline-block;
+    width: 50%;
+    overflow: hidden; 
+}
+/*ユーザー情報パーツ*/
+.user_name_min {
+    margin-left: 20px;
+    width: 80px;
+}
+.user_image {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid #999999;
+    padding: 3px;
+}
+.user_image_min {
     border-radius: 50%;
     width: 35px;
     height: 35px;
     object-fit: cover;
-    border: 1px solid #999;
+    border: 1px solid #999999;
     padding: 1px;
 }
-.user_name_min {
-    margin-left: 20px;
-    width: 100px;
+/*album詳細ページ*/
+.default_icon::after {
+    display: none; 
+}
+.photo_flame {
+    padding: 2.5px 2.5px;
+}
+.photo_preview_window {
+    border-radius: 1%;
+    width: 100%;
+    height: 400px;
+    border: 2px solid #999999;
+    padding: 5px 20px 5px 20px;
+    margin: 0 auto 20px auto;
+    overflow-y: auto;
 }
 .album_comment {
     border-top: 2px solid gray;
-    border-bottom: 2px solid gray;
+    border-bottom: 2px solid #999999;
     height: 100px;
     padding: 5px;
     overflow-y: auto;
     margin-bottom: 20px;
 }
-.album_photo {
-    width: 100%;
-    height: 100px;
-    border: solid 1px gray;
-    object-fit: cover;
-}
-.default_icon::after {
-    display: none; 
-}
-
 .select {
-    border: solid 3px blue;
+    border-radius: 2%;
+    border: solid 3px #1e90ff;
 }

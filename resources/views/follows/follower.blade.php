@@ -5,19 +5,20 @@
 @section('content')
 
 <div class="row">
-    <div class="col-12 row d-flex justify-content-end align-items-end">
-        <h1 class="col-6 text-truncate text-right" style="padding-right: 0;">{{ $user->name }}</h1>
-        <h1 class="col-6 text-left">さんのフォロワー</h1>
+    <div class="col-12">
+        <h1><span class="text-truncate text-right follows_title_target_name">{{ $user->name }}</span><span class="follows_title">さんのフォロワー</span></h1>
     </div>
     @forelse($followers as $follower)
     <div class="col-6 col-sm-6 col-md-4 col-lg-3 text-center">
-        <a href="{{ route('users.show', $follower->id) }}">
-            @if($user->image !== '')
-            <img src="{{ asset('storage/' . $follower->image) }}" class="image_preview">
-            @else
-            <img src="{{ asset('images/no_image.png') }}" class="image_preview">
-            @endif
-            <p class="text-truncate user_name">{{ $follower->name }}</p>
+        <a href="{{ route('users.show', $follower->id) }}" class="text-decoration-none">
+            <div class="img_position">
+                @if($follower->image !== '')
+                <img src="{{ asset('storage/' . $follower->image) }}" class="user_image">
+                @else
+                <img src="{{ asset('images/no_image.png') }}" class="user_image">
+                @endif
+            </div>
+            <p class="text-truncate w-75 mx-auto">{{ $follower->name }}</p>
         </a>
     </div>
     @empty

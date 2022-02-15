@@ -1,15 +1,17 @@
-@extends('layouts.not_logged_in')
+<?php
+$title = '会員登録';
+?>
 
-@section('title', $title)
+@extends('layouts.not_logged_in')
 
 @section('content')
 
 <div class="row justify-content-center">
     <form method="post" action="{{ route('register') }}" enctype="multipart/form-data" class="col-12 col-md-8 col-lg-6">
         @csrf
-        <output id="result" class="row justify-content-center">
-            <div>
-                <img src="{{ asset('images/no_image.png') }}" class="image_preview">
+        <output id="result" class="row justify-content-center w-50 mx-auto">
+            <div class="img_position">
+                <img src="{{ asset('images/no_image.png') }}" class="user_image">
             </div>
         </output>
         <div class="form-group">
@@ -44,13 +46,14 @@
     inputFile.addEventListener("change", (event) => {
         let file = event.target.files[0];
         let output = document.getElementById("result");
-        output.innerHTML = "<div><img src='{{ asset('images/no_image.png') }}' class='image_preview'></div>";
+        output.innerHTML = "<div class='img_position'><img src='{{ asset('images/no_image.png') }}' class='user_image'></div>";
         if(file.type.match('image')){
             let fileReader = new FileReader;
             fileReader.addEventListener("load", (event) => {
                 let imageFile = event.target;
                 let div = document.createElement("div");
-                div.innerHTML = "<img src='" + imageFile.result + "' class='image_preview'>";
+                div.classList.add('img_position');
+                div.innerHTML = "<img src='" + imageFile.result + "' class='user_image'>";
                 output.innerHTML = "";
                 output.insertBefore(div, null);
             });

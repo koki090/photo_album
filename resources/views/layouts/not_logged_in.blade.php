@@ -5,7 +5,7 @@
 @section('header')
 
 <header>
-    <nav class="navbar navbar-expand-sm fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top bg-light">
         <a href="{{ route('albums.home') }}" class="navbar-brand"><img src="{{ asset('images/logo.png') }}"></a>
         <button data-toggle="collapse" data-target="#mainNav" class="navbar-toggler ml-auto">
             <span class="navar-toggler-icon"><i class="fas fa-bars"></i></span>

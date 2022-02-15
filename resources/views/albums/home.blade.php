@@ -6,16 +6,18 @@
 
 <div class="row">
     @forelse($albums as $album)
-    <div class="col-6 col-sm-6 col-md-4 col-lg-3 album">
-        <a href="{{ route('albums.show', $album->id) }}">
+    <div class="col-6 col-sm-6 col-md-4 col-lg-3 pt-3">
+        <a href="{{ route('albums.show', $album->id) }}" class="text-decoration-none">
             <div class="card h-100">
-                <div class="card-header text-center" style="padding: 1vh;">
-                    <p class="text-dark text-truncate" style="margin: 0 3vh auto 3vh;">{{ $album->title }}</p>
+                <div class="card-header text-center p-2">
+                    <p class="text-dark text-truncate mx-3 my-0">{{ $album->title }}</p>
                 </div>
-                <div class="card-body" style="padding: 1vh; position: relative;">
-                    <div class="slick_photos">
+                <div class="card-body album_body">
+                    <div class="img_position">
                         @foreach($album->photos as $photo)
-                        <img src="{{ asset('storage/' . $photo->path) }}" class="card-img-bottom card_img">
+                        @if($loop->first)
+                        <img src="{{ asset('storage/' . $photo->path) }}" class="card-img-bottom album_photo">
+                        @endif
                         @endforeach
                     </div>
                 </div>

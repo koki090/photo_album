@@ -9,12 +9,12 @@
         @csrf
         @method('patch')
         <div class="form-group">
-            <label for="input_title">タイトル</label>
-            <input id="input_title" type="text" name="title" value="{{ $album->title }}" class="form-control">
+            <label for="inputTitle">タイトル</label>
+            <input id="inputTitle" type="text" name="title" value="{{ $album->title }}" class="form-control">
         </div>
         <div class="form-group">
-            <label for="input_comment">コメント</label>
-            <textarea id="input_comment" name="comment" class="form-control">{{ $album->comment }}</textarea>
+            <label for="inputComment">コメント</label>
+            <textarea id="inputComment" name="comment" class="form-control">{{ $album->comment }}</textarea>
         </div>
         <div class="text-right">
             <input type="submit" value="編集を保存" class="btn btn-primary">
