@@ -59,7 +59,7 @@ class AlbumController extends Controller
 
     public function create(){
         return view('albums.create', [
-            'title' => '新規アルバム作成',]);
+            'title' => '新規作成',]);
     }
 
     public function store(AlbumRequest $request){
@@ -85,7 +85,7 @@ class AlbumController extends Controller
     public function show($id){
         $album = Album::find($id);
         return view('albums.show', [
-            'title' => 'アルバム名',
+            'title' => $album->title,
             'album' => $album]);
     }
 
@@ -93,7 +93,7 @@ class AlbumController extends Controller
         if(Album::find($id)->user_id === \Auth::id()){
             $album = Album::find($id);
             return view('albums.edit', [
-                'title' => 'アルバム名の編集',
+                'title' => 'アルバム編集',
                 'album' => $album]);
         }else{
             return redirect()->route('albums.show', $id);
@@ -110,7 +110,7 @@ class AlbumController extends Controller
         if(Album::find($id)->user_id === \Auth::id()){
             $album_photos = Album::find($id)->photos()->get();
             return view('albums.delete_photo', [
-                'title' => '写真を選択して削除',
+                'title' => '写真の削除',
                 'album_id' => $id,
                 'album_photos' => $album_photos]);
         }else{
@@ -143,7 +143,7 @@ class AlbumController extends Controller
         if(Album::find($id)->user_id === \Auth::id()){
             $album_photos = Album::find($id)->photos()->get();
             return view('albums.push_photo', [
-                'title' => 'アルバムに写真を追加',
+                'title' => 'アルバムの追加',
                 'album_id' => $id,
                 'album_photos' => $album_photos]);
         }else{
