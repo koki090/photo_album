@@ -5,14 +5,16 @@
 @section('content')
 
 <div class="row justify-content-center">
-    <form method="post" action="{{ route('albums.select_push_photo', $album_id) }}" enctype="multipart/form-data" class="col-12 col-md-8 col-lg-6">
+    <form method="post" action="{{ route('albums.select_push_photo', $album_id) }}" enctype="multipart/form-data" class="col-12">
         @csrf
         @method('patch')
         <div class="form-group">
-            <label for="input_photo">写真を追加</label>
-            <input id="input_photo" type="file" name="photos[]" class="form-control-file" multiple>
+            <label for="inputPhoto">写真を追加</label>
+            <input id="inputPhoto" type="file" name="photos[]" class="form-control-file" multiple>
         </div>
-        <output id="result" class="photo_preview_window row"></output>
+        <div class="photo_preview_window">
+            <output id="result" class="row"></output>
+        </div>
         <div class="text-right">
             <input type="submit" value="写真を追加" class="btn btn-primary">
         </div>
@@ -20,7 +22,7 @@
 </div>
 
 <script>
-    let inputFiles = document.getElementById("input_photo");
+    let inputFiles = document.getElementById("inputPhoto");
     inputFiles.addEventListener("change", (event) => {
         let files = event.target.files;
         let output = document.getElementById("result");
@@ -34,8 +36,8 @@
             fileReader.addEventListener("load", (event) => {
                 let imageFile = event.target;
                 let div = document.createElement("div");
-                div.classList.add('col-lg-2', 'col-md-2', 'col-sm-3', 'col-3', 'photo_preview_flame', 'align-items-center');
-                div.innerHTML = "<img src='" + imageFile.result + "' class='photo_preview'>";
+                div.classList.add('col-3', 'col-sm-3', 'col-md-2', 'col-lg-2', 'photo_flame');
+                div.innerHTML = "<div class='img_position'><img src='" + imageFile.result + "' class='album_photo'></div>";
                 output.insertBefore(div, null);
                 });
             fileReader.readAsDataURL(file);
@@ -44,4 +46,3 @@
 </script>
 
 @endsection
-

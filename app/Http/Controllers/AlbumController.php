@@ -19,14 +19,14 @@ class AlbumController extends Controller
     }
     
     public function home(){
-        $albums = Album::where('release', 1)->get();
+        $albums = Album::where('release', 1)->inRandomOrder()->get();
         return view('albums.home', [
-            'title' => 'Phot_album',
+            'title' => 'Photo_album',
             'albums' => $albums]);
     }
     
     public function index(Request $request){
-        $search_albums = Album::where('release', 1);
+        $search_albums = Album::where('release', 1)->inRandomOrder();
         $range = $request->range;
         $search_words = '';
         if(isset($request->search_word)){
@@ -53,7 +53,7 @@ class AlbumController extends Controller
         $albums = $search_albums->get();
         
         return view('albums.index', [
-            'title' => 'アルバム',
+            'title' => 'Photo_album',
             'albums' => $albums]);
     }
 
@@ -128,7 +128,7 @@ class AlbumController extends Controller
                 \Storage::disk('public')->delete($photo->path);
             }
             Album::find($id)->delete();
-            return redirect()->route('albums.index');
+            return redirect()->route('albums.show' . \Auth::id());
         }else{
             foreach($photo_ids as $photo_id){
                 $path = Photo::find($photo_id)->path;
@@ -170,6 +170,6 @@ class AlbumController extends Controller
             $album->update([
                 'release' => '1']);
         }
-        return redirect()->route('users.show', \Auth::id());
+        return back();
     }
 }

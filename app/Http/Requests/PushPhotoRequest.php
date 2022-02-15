@@ -28,7 +28,7 @@ class PushPhotoRequest extends FormRequest
                 'file',
                 'image',
                 'mimes:jpeg,jpg,png',
-                'dimensions:max_width=1000,max_height=1000']
+                'max:1024']
             
         ];
     }

@@ -22,6 +22,11 @@
             
             @yield('content')
             
+            <div class="back_to_top">
+                <a href="#">TOP <i class="fas fa-angle-double-up"></i></a>
+            </div>
+            
+            
         </div>  
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -33,17 +38,6 @@
         <script>
             $('.click_action').on('click', (event) => {
               $(event.currentTarget).next().submit();
-            });
-            
-            $(function(){
-                $('.slick_photos').each(function(i){
-                    $(this).attr('id', 'slick_' + (i+1));
-                    $('#slick_' + (i+1)).slick({
-                        autoplay: true,
-                        arrows: false,
-                        speed: Math.floor(Math.random() * (999)) + 200,
-                    });    
-                });
             });
         </script>
     </body>

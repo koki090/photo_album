@@ -1,6 +1,8 @@
-@extends('layouts.not_logged_in')
+<?php
+$title = 'ログイン画面';
+?>
 
-@section('title', $title)
+@extends('layouts.not_logged_in')
 
 @section('content')
 
