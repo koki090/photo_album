@@ -88,7 +88,7 @@ html {
 }
 /*ユーザー情報パーツ*/
 .user_name_min {
-    margin-left: 20px;
+    margin-left: 10px;
     width: 80px;
 }
 .user_image {
@@ -108,6 +108,9 @@ html {
     padding: 1px;
 }
 /*album詳細ページ*/
+.album_title {
+    width: 250px;
+}
 .default_icon::after {
     display: none; 
 }
@@ -130,6 +133,13 @@ html {
     padding: 5px;
     overflow-y: auto;
     margin-bottom: 20px;
+    position: relative;
+}
+.album_show_like_form {
+    position: absolute;
+    right: 2%;
+    bottom: 5%;
+    cursor: pointer;
 }
 .select {
     border-radius: 2%;
